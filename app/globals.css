@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-display: "Inter", system-ui, sans-serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --ebony: #414833;
+  --reseda: #737a5d;
+  --sage: #a4ac86;
+  --dun: #ccbfa3;
+  --bone: #ebe3d2;
+  --surface: #ffffff;
 }
 
 html {
@@ -25,40 +31,105 @@ body {
   }
 
   .btn-primary {
-    @apply btn bg-brand-600 text-white shadow-lg shadow-brand-600/20 hover:bg-brand-700 hover:-translate-y-0.5;
+    @apply btn bg-ink text-white shadow-md shadow-ink/25 hover:bg-brand-700 hover:-translate-y-0.5;
   }
 
   .btn-ghost {
-    @apply btn border border-ink/10 bg-white text-ink hover:border-brand-500 hover:text-brand-600;
+    @apply btn border-2 border-ink bg-surface text-ink hover:bg-ink hover:text-white;
   }
 
+  /* Green chip / tag — used in hero + section labels */
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-700;
+    @apply inline-flex items-center gap-2 rounded-full bg-ink px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white;
+  }
+
+  .eyebrow-soft {
+    @apply inline-flex items-center gap-2 rounded-full bg-sage/35 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-ink;
   }
 
   .card {
-    @apply rounded-2xl border border-ink/[0.06] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-ink/5;
+    @apply rounded-2xl border border-ink/10 bg-surface p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-ink/25 hover:shadow-lg hover:shadow-ink/10;
   }
 
   .section {
     @apply py-20 sm:py-28;
   }
 
+  .section-cream {
+    @apply section bg-paper;
+  }
+
+  .section-white {
+    @apply section bg-surface;
+  }
+
+  /* Strong green band for mid-page emphasis */
+  .section-green {
+    @apply section bg-ink text-white;
+  }
+
   .h-section {
-    @apply text-3xl font-bold tracking-tight text-ink sm:text-4xl md:text-5xl;
+    @apply font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl md:text-5xl;
+  }
+
+  /* Solid dark-green icon tiles */
+  .icon-well {
+    @apply grid place-items-center rounded-xl bg-ink text-white;
+  }
+
+  .icon-well-soft {
+    @apply grid place-items-center rounded-xl bg-sage/40 text-ink;
+  }
+
+  /* Dark green highlight panels throughout pages */
+  .accent-panel {
+    @apply rounded-3xl bg-ink text-white;
+  }
+
+  .accent-panel-soft {
+    @apply rounded-3xl bg-brand-500 text-white;
+  }
+
+  .link-green {
+    @apply font-semibold text-ink underline-offset-4 hover:underline;
+  }
+
+  .check-dot {
+    @apply grid h-6 w-6 shrink-0 place-items-center rounded-full bg-ink text-white;
   }
 }
 
 .text-gradient {
-  background: linear-gradient(120deg, #4f46e5 0%, #6366f1 40%, #f43f5e 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #414833;
+  background: none;
 }
 
 .grid-bg {
   background-image:
-    linear-gradient(to right, rgba(99, 102, 241, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(99, 102, 241, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(65, 72, 51, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(65, 72, 51, 0.07) 1px, transparent 1px);
   background-size: 44px 44px;
+}
+
+/* Smooth scroll reveals */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

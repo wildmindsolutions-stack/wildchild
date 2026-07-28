@@ -4,14 +4,16 @@ import CTA from "../components/CTA";
 import { work } from "../lib/content";
 
 export const metadata: Metadata = {
-  title: "Our Work — Projection Mapping & Immersive Project Portfolio",
+  title: "Our Work — Projection Mapping & Immersive Projects in India",
   description:
-    "A selection of WildChild Studios projects: large-scale projection mapping, interactive exhibitions, digital museums and immersive events delivered across India.",
+    "Portfolio of WildChild Studios: 3D projection mapping, government campaigns, tourism installations, exhibitions and immersive events across Ahmedabad, Gujarat and India.",
   alternates: { canonical: "/work" },
   keywords: [
     "projection mapping portfolio",
-    "immersive experience projects India",
-    "exhibition case studies"
+    "best projection mapping projects India",
+    "immersive experience projects Ahmedabad",
+    "government campaigns Gujarat",
+    "exhibition case studies India"
   ]
 };
 
@@ -40,7 +42,7 @@ export default function WorkPage() {
                 />
               </div>
               <div className="p-6">
-                <p className="text-xs font-semibold uppercase tracking-widest text-brand-700">
+                <p className="text-xs font-semibold uppercase tracking-widest text-ink-muted">
                   {project.category}
                 </p>
                 <h2 className="mt-2 text-lg font-semibold text-ink">{project.title}</h2>

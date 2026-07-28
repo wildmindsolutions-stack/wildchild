@@ -5,14 +5,17 @@ import Icon from "../components/Icon";
 import { stats } from "../lib/content";
 
 export const metadata: Metadata = {
-  title: "About Us — Immersive Technology Studio in Ahmedabad",
+  title: "About Us — Best Creative Studio in Ahmedabad, Gujarat & India",
   description:
-    "WildChild Studios merges technology, creativity and content to build immersive experiences — 3D projection mapping, AR/VR, digital museums and more. Meet the team behind the work.",
+    "WildChild Studios is a leading creative studio and immersive technology company in Ahmedabad, Gujarat and India — merging projection mapping, AR/VR, animation and event technology.",
   alternates: { canonical: "/about" },
   keywords: [
     "about WildChild Studios",
+    "best creative studio in Ahmedabad",
     "immersive technology studio Ahmedabad",
-    "creative technology company India"
+    "creative technology company Gujarat",
+    "creative agency India",
+    "creative studio near me"
   ]
 };
 
@@ -72,18 +75,18 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-y border-ink/[0.06] bg-white">
+      <section className="border-y border-ink/[0.08] bg-surface">
         <div className="container-wc grid grid-cols-2 gap-6 py-12 md:grid-cols-4">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
-              <p className="font-display text-3xl font-bold text-ink sm:text-4xl">{s.value}</p>
+              <p className="font-display text-3xl font-semibold text-ink sm:text-4xl">{s.value}</p>
               <p className="mt-1 text-sm text-ink-muted">{s.label}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="section">
+      <section className="section-cream">
         <div className="container-wc">
           <div className="max-w-2xl">
             <span className="eyebrow">What drives us</span>
@@ -92,7 +95,7 @@ export default function AboutPage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {values.map((v) => (
               <div key={v.title} className="card">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-brand-50 text-brand-600">
+                <div className="icon-well h-11 w-11">
                   <Icon name="check" className="h-5 w-5" />
                 </div>
                 <h3 className="mt-5 text-lg font-semibold text-ink">{v.title}</h3>

@@ -5,6 +5,7 @@ import PageHeader from "../../components/PageHeader";
 import CTA from "../../components/CTA";
 import Icon from "../../components/Icon";
 import TechIcon from "../../components/TechIcon";
+import GeoTargeting from "../../components/GeoTargeting";
 import { technologies, getTechnology } from "../../lib/technologies";
 import { siteConfig } from "../../lib/site";
 
@@ -18,7 +19,7 @@ export function generateMetadata({ params }: Params): Metadata {
   const tech = getTechnology(params.slug);
   if (!tech) return {};
   return {
-    title: tech.metaTitle,
+    title: { absolute: tech.metaTitle },
     description: tech.metaDescription,
     keywords: tech.keywords,
     alternates: { canonical: `/technologies/${tech.slug}` },
@@ -26,7 +27,13 @@ export function generateMetadata({ params }: Params): Metadata {
       title: tech.metaTitle,
       description: tech.metaDescription,
       url: `${siteConfig.siteUrl}/technologies/${tech.slug}`,
-      type: "article"
+      type: "article",
+      locale: "en_IN"
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: tech.metaTitle,
+      description: tech.metaDescription
     }
   };
 }
@@ -40,10 +47,32 @@ export default function TechnologyDetail({ params }: Params) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: tech.name,
-    provider: { "@type": "Organization", name: siteConfig.name, url: siteConfig.siteUrl },
+    name: `Best ${tech.searchPhrase} in Ahmedabad`,
+    alternateName: [
+      `Best ${tech.searchPhrase} in Gujarat`,
+      `Best ${tech.searchPhrase} in India`
+    ],
+    provider: {
+      "@type": "LocalBusiness",
+      name: siteConfig.name,
+      url: siteConfig.siteUrl,
+      telephone: siteConfig.phone,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "511 Satyamev Eminence, Science City Road, Sola",
+        addressLocality: "Ahmedabad",
+        addressRegion: "Gujarat",
+        postalCode: "380060",
+        addressCountry: "IN"
+      }
+    },
     description: tech.metaDescription,
-    areaServed: "IN"
+    areaServed: [
+      { "@type": "City", name: "Ahmedabad" },
+      { "@type": "State", name: "Gujarat" },
+      { "@type": "Country", name: "India" }
+    ],
+    url: `${siteConfig.siteUrl}/technologies/${tech.slug}`
   };
 
   return (
@@ -52,7 +81,11 @@ export default function TechnologyDetail({ params }: Params) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <PageHeader eyebrow="Technology" title={tech.name} description={tech.short} />
+      <PageHeader
+        eyebrow="Technology"
+        title={`Best ${tech.searchPhrase} in Ahmedabad`}
+        description={`${tech.short} Also serving Gujarat and India.`}
+      />
 
       <section className="section">
         <div className="container-wc grid gap-12 lg:grid-cols-[1.4fr,1fr]">
@@ -64,7 +97,7 @@ export default function TechnologyDetail({ params }: Params) {
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {tech.bullets.map((b) => (
                 <li key={b} className="flex items-start gap-3">
-                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-brand-50 text-brand-600">
+                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-ink text-white">
                     <Icon name="check" className="h-3.5 w-3.5" />
                   </span>
                   <span className="text-sm leading-relaxed text-ink-soft">{b}</span>
@@ -89,14 +122,24 @@ export default function TechnologyDetail({ params }: Params) {
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl bg-brand-600 p-6 text-white">
+            <div className="rounded-2xl border border-ink/[0.06] bg-paper p-6">
+              <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-muted">
+                People also search
+              </h3>
+              <ul className="mt-3 space-y-2 text-sm text-ink-soft">
+                <li>Best {tech.searchPhrase.toLowerCase()} in Ahmedabad</li>
+                <li>Best {tech.searchPhrase.toLowerCase()} in Gujarat</li>
+                <li>Best {tech.searchPhrase.toLowerCase()} in India</li>
+              </ul>
+            </div>
+            <div className="accent-panel p-6">
               <h3 className="text-lg font-semibold">Have a project in mind?</h3>
-              <p className="mt-2 text-sm text-white/80">
+              <p className="mt-2 text-sm text-white/85">
                 Tell us your idea and we&apos;ll shape the right technology around it.
               </p>
               <Link
                 href="/contact"
-                className="btn mt-5 w-full bg-white text-brand-700 hover:bg-white/90"
+                className="btn mt-5 w-full bg-surface text-ink hover:bg-paper"
               >
                 Get in touch
               </Link>
@@ -105,13 +148,15 @@ export default function TechnologyDetail({ params }: Params) {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <GeoTargeting servicePhrase={tech.searchPhrase} />
+
+      <section className="section-white">
         <div className="container-wc">
           <h2 className="h-section">Explore more technologies</h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {others.map((t) => (
               <Link key={t.slug} href={`/technologies/${t.slug}`} className="card group">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-white transition-colors group-hover:bg-brand-600">
+                <div className="icon-well h-11 w-11 transition-colors group-hover:bg-ink group-hover:text-white">
                   <TechIcon slug={t.slug} />
                 </div>
                 <h3 className="mt-4 font-semibold text-ink">{t.name}</h3>

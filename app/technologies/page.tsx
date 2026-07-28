@@ -7,17 +7,19 @@ import Icon from "../components/Icon";
 import { technologies } from "../lib/technologies";
 
 export const metadata: Metadata = {
-  title: "Technologies — Projection Mapping, AR/VR, Holograms & More",
+  title: "Technologies — Best AR VR & Projection Mapping Tech in Ahmedabad, Gujarat & India",
   description:
-    "Explore the immersive technologies WildChild Studios masters: 3D projection mapping, virtual reality, augmented reality, LIDAR scanning, motion capture, holographic projection, interactive kiosks and more.",
+    "Master immersive technologies with WildChild Studios in Ahmedabad: 3D projection mapping, VR technology, AR technology, LIDAR, motion capture, holographic projection and interactive kiosks across Gujarat and India.",
   alternates: { canonical: "/technologies" },
   keywords: [
-    "immersive technologies",
-    "3D projection mapping",
-    "AR VR",
-    "holographic projection",
-    "motion capture",
-    "LIDAR scanning"
+    "immersive technologies India",
+    "best 3D projection mapping Ahmedabad",
+    "AR VR technology Gujarat",
+    "VR technology India",
+    "AR technology Ahmedabad",
+    "holographic projection India",
+    "motion capture Gujarat",
+    "LIDAR scanning India"
   ]
 };
 
@@ -34,12 +36,12 @@ export default function TechnologiesPage() {
         <div className="container-wc grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {technologies.map((tech) => (
             <Link key={tech.slug} href={`/technologies/${tech.slug}`} className="card group flex flex-col">
-              <div className="grid h-12 w-12 place-items-center rounded-xl bg-ink text-white transition-colors group-hover:bg-brand-600">
+              <div className="icon-well h-12 w-12 transition-colors group-hover:bg-ink group-hover:text-white">
                 <TechIcon slug={tech.slug} />
               </div>
               <h2 className="mt-5 text-lg font-semibold text-ink">{tech.name}</h2>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">{tech.short}</p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600">
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-ink">
                 Learn more <Icon name="arrow" className="h-4 w-4" />
               </span>
             </Link>

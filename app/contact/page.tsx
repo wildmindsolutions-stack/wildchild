@@ -4,11 +4,17 @@ import ContactForm from "../components/ContactForm";
 import { siteConfig } from "../lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Start an Immersive Project",
+  title: "Contact Us — Best Immersive Studio in Ahmedabad, Gujarat & India",
   description:
-    "Get in touch with WildChild Studios in Ahmedabad, India. Talk to us about 3D projection mapping, AR/VR, digital museums and immersive experiences for your next event.",
+    "Contact WildChild Studios in Ahmedabad for projection mapping, AR/VR technology, museum experiences, animation, video production and event technology across Gujarat and India.",
   alternates: { canonical: "/contact" },
-  keywords: ["contact WildChild Studios", "projection mapping enquiry", "immersive studio Ahmedabad"]
+  keywords: [
+    "contact WildChild Studios",
+    "projection mapping enquiry Ahmedabad",
+    "creative studio near me Ahmedabad",
+    "event technology company Gujarat",
+    "AR VR company India contact"
+  ]
 };
 
 export default function ContactPage() {

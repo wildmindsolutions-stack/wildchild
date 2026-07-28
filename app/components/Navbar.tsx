@@ -3,28 +3,22 @@
 import Link from "next/link";
 import { useState } from "react";
 import { mainNav, siteConfig } from "../lib/site";
+import BrandLogo from "./BrandLogo";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink/[0.06] bg-paper/80 backdrop-blur-md">
-      <nav className="container-wc flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2" aria-label="WildChild Studios home">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-brand-600 to-accent text-white font-display font-bold">
-            W
-          </span>
-          <span className="font-display text-lg font-bold tracking-tight">
-            WildChild<span className="text-brand-600"> Studios</span>
-          </span>
-        </Link>
+    <header className="sticky top-0 z-50 border-b border-ink/[0.08] bg-surface">
+      <nav className="container-wc flex h-16 items-center justify-between gap-4 sm:h-[4.25rem]">
+        <BrandLogo size="nav" />
 
         <ul className="hidden items-center gap-1 lg:flex">
           {mainNav.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:bg-white hover:text-brand-600"
+                className="rounded-full px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-paper hover:text-ink"
               >
                 {item.label}
               </Link>
@@ -39,7 +33,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className="grid h-10 w-10 place-items-center rounded-lg border border-ink/10 lg:hidden"
+          className="grid h-10 w-10 place-items-center rounded-lg border border-ink/10 bg-surface lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
           aria-expanded={open}
@@ -53,14 +47,14 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-ink/[0.06] bg-paper lg:hidden">
+        <div className="border-t border-ink/[0.08] bg-surface lg:hidden">
           <ul className="container-wc flex flex-col gap-1 py-4">
             {mainNav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-4 py-2.5 text-sm font-medium text-ink-soft hover:bg-white hover:text-brand-600"
+                  className="block rounded-lg px-4 py-2.5 text-sm font-medium text-ink-soft hover:bg-paper hover:text-ink"
                 >
                   {item.label}
                 </Link>
