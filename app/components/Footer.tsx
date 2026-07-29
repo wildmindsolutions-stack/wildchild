@@ -26,8 +26,8 @@ export default function Footer() {
         <div>
           <BrandLogo size="footer" />
           <p className="mt-4 text-sm leading-relaxed text-white/60">
-            Best immersive technology, projection mapping and creative studio in Ahmedabad,
-            Gujarat and India.
+            India&apos;s AI-powered creative technology and immersive experience company,
+            delivering projects PAN India.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             {locationHubs.map((hub) => (
@@ -111,12 +111,25 @@ export default function Footer() {
               {siteConfig.email}
             </a>
           </div>
+          <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-xs font-semibold">
+            {Object.entries(siteConfig.social).map(([name, href]) => (
+              <a
+                key={name}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="capitalize text-white/70 transition-colors hover:text-white"
+              >
+                {name}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 
       <div className="border-t border-white/10">
         <div className="container-wc flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/50 sm:flex-row">
-          <p>© {year} WildChild Studios. Ahmedabad, Gujarat, India.</p>
+          <p>© {year} WildChild Studios. Serving clients PAN India.</p>
           <p className="flex gap-4">
             <span className="cursor-pointer hover:text-white">Terms of Use</span>
             <span className="cursor-pointer hover:text-white">Privacy Policy</span>

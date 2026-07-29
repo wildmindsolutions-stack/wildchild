@@ -54,6 +54,7 @@ export default function RootLayout({
     email: siteConfig.email,
     telephone: siteConfig.phone,
     description: siteConfig.description,
+    sameAs: Object.values(siteConfig.social),
     address: {
       "@type": "PostalAddress",
       streetAddress: "511 Satyamev Eminence, Science City Road, Sola",

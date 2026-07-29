@@ -17,20 +17,16 @@ export default function HomePage() {
         <div className="pointer-events-none absolute inset-0 grid-bg opacity-50" />
         <div className="container-wc relative grid w-full items-center gap-6 py-6 sm:gap-8 sm:py-8 lg:grid-cols-2 lg:gap-10 lg:py-10">
           <div className="animate-fade-up">
-            <span className="eyebrow text-[10px] sm:text-xs">Ahmedabad · Gujarat · India</span>
-            <h1 className="mt-3 font-display text-[1.65rem] font-semibold leading-[1.15] tracking-tight text-ink sm:mt-4 sm:text-4xl md:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
-              Best projection mapping &amp; immersive technology studio in India.
+            <span className="eyebrow text-[10px] sm:text-xs">PAN-India Creative Technology Company</span>
+            <h1 className="mt-3 font-display text-[1.75rem] font-bold leading-[1.12] tracking-tight text-ink sm:mt-4 sm:text-4xl md:text-[2.5rem] lg:text-[2.8rem] lg:leading-[1.08]">
+              India&apos;s Leading{" "}
+              <em className="font-normal italic text-olive">AI-Powered</em> Creative Technology
+              &amp; Immersive Experience Company
             </h1>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-muted sm:mt-4 sm:text-base lg:text-lg">
-              <span className="sm:hidden">
-                Immersive tech studio in Ahmedabad — 3D projection mapping, AR/VR, museums and
-                event technology across Gujarat &amp; India.
-              </span>
-              <span className="hidden sm:inline">
-                WildChild Studios is a leading creative studio in Ahmedabad offering 3D projection
-                mapping, AR/VR technology, museum experiences, event technology, animation and video
-                production for brands, government campaigns and tourism across Gujarat and India.
-              </span>
+              We design, develop and deliver AI video production, projection mapping, immersive
+              museums, AR/VR applications, holographic experiences, interactive installations and
+              digital experiences for governments, enterprises, museums and global brands.
             </p>
             <div className="mt-5 flex flex-col gap-2.5 sm:mt-6 sm:flex-row sm:gap-3">
               <Link href="/contact" className="btn-primary px-5 py-2.5 text-sm sm:px-6 sm:py-3">

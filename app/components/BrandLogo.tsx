@@ -14,8 +14,8 @@ export default function BrandLogo({
 }: BrandLogoProps) {
   const isFooter = size === "footer";
 
-  // Transparent logos: light version for cream/white header, bright version for dark footer
-  const src = isFooter ? "/images/logo-on-dark.png" : "/images/logo-light.png";
+  // Footer keeps the navbar "W" mark but greys the wordmark for the olive background
+  const src = isFooter ? "/images/logo-footer.png" : "/images/logo-light.png";
   const dims = isFooter
     ? { width: 260, height: 66, className: "h-12 w-auto sm:h-14" }
     : { width: 220, height: 56, className: "h-11 w-auto sm:h-12" };

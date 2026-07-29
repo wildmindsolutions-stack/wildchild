@@ -54,10 +54,10 @@ export const siteConfig = {
   phone: "+91 92274 28262",
   phoneHref: "+919227428262",
   social: {
-    facebook: "https://www.facebook.com/",
-    instagram: "https://www.instagram.com/",
-    youtube: "https://www.youtube.com/",
-    linkedin: "https://www.linkedin.com/"
+    facebook: "https://www.facebook.com/WildChildStudio",
+    instagram: "https://www.instagram.com/wildchild.studios/",
+    youtube: "https://www.youtube.com/@WildChildStudios",
+    linkedin: "https://www.linkedin.com/company/wildchild-studios/posts/"
   },
   offices: [
     {
