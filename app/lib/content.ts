@@ -121,24 +121,27 @@ export const testimonials = [
   }
 ];
 
+const greenLogo = (file: string) =>
+  `/images/green logos/${encodeURIComponent(file).replace(/%2F/g, "/")}`;
+
 export const clients = [
-  { name: "Hindu Spiritual & Service Fair", logo: "/images/Logo (1)/1.png" },
-  { name: "Daxini Cha Raja", logo: "/images/Logo (1)/2.png" },
-  { name: "ADK Engineering & Solutions", logo: "/images/Logo (1)/3.png" },
-  { name: "Dev Dye Chem Industries", logo: "/images/Logo (1)/4.png" },
-  { name: "Dholera SIR", logo: "/images/Logo (1)/5.png" },
-  { name: "Bharatiya Janata Party", logo: "/images/Logo (1)/6.png" },
-  { name: "ABVP", logo: "/images/Logo (1)/7.png" },
-  { name: "Acticon Life Sciences", logo: "/images/Logo (1)/8.png" },
-  { name: "Chalo India 2018", logo: "/images/Logo (1)/9.png" },
-  { name: "Commissioner of Geology & Mining", logo: "/images/Logo (1)/10.png" },
-  { name: "Vibrant Gujarat 2019", logo: "/images/Logo (1)/11.png" },
-  { name: "Flocare", logo: "/images/Logo (1)/12.png" },
-  { name: "Ahmedabad Metro", logo: "/images/Logo (1)/13.png" },
-  { name: "Vama Communications", logo: "/images/Logo (1)/14.png" },
-  { name: "Wild West Academy", logo: "/images/Logo (1)/15.png" },
-  { name: "Premium Labels", logo: "/images/Logo (1)/16.png" },
-  { name: "State Bank of India", logo: "/images/Logo (1)/17.png" },
-  { name: "Devum Research", logo: "/images/Logo (1)/Devum research.png" },
-  { name: "ARG", logo: "/images/Logo (1)/1630661315588.jfif" }
+  { name: "Hindu Spiritual & Service Fair", logo: greenLogo("1.png") },
+  { name: "Daxini Cha Raja", logo: greenLogo("2.png") },
+  { name: "ADK Engineering & Solutions", logo: greenLogo("ADK.png") },
+  { name: "Dev Dye Chem Industries", logo: greenLogo("4.png") },
+  { name: "Dholera SIR", logo: greenLogo("5.png") },
+  { name: "Bharatiya Janata Party", logo: greenLogo("6.png") },
+  { name: "ABVP", logo: greenLogo("7.png") },
+  { name: "Acticon Life Sciences", logo: greenLogo("Acticon Logo.png") },
+  { name: "Chalo India 2018", logo: greenLogo("9.png") },
+  { name: "Commissioner of Geology & Mining", logo: greenLogo("10.png") },
+  { name: "Vibrant Gujarat 2019", logo: greenLogo("11.png") },
+  { name: "Flocare", logo: greenLogo("Flocare Logo.png") },
+  { name: "Ahmedabad Metro", logo: greenLogo("13.png") },
+  { name: "Vama Communications", logo: greenLogo("14.png") },
+  { name: "Wild West Academy", logo: greenLogo("15.png") },
+  { name: "Premium Labels", logo: greenLogo("16.png") },
+  { name: "State Bank of India", logo: greenLogo("17.png") },
+  { name: "Devum Research", logo: greenLogo("Devum research.png") },
+  { name: "ARG", logo: greenLogo("1630661315588.jpg") }
 ];
