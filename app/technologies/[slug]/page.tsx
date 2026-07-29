@@ -97,7 +97,7 @@ export default function TechnologyDetail({ params }: Params) {
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {tech.bullets.map((b) => (
                 <li key={b} className="flex items-start gap-3">
-                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-ink text-white">
+                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-olive text-white">
                     <Icon name="check" className="h-3.5 w-3.5" />
                   </span>
                   <span className="text-sm leading-relaxed text-ink-soft">{b}</span>
@@ -108,7 +108,7 @@ export default function TechnologyDetail({ params }: Params) {
 
           <aside className="space-y-6">
             <div className="rounded-2xl border border-ink/[0.06] bg-white p-6 shadow-sm">
-              <div className="grid h-12 w-12 place-items-center rounded-xl bg-ink text-white">
+              <div className="grid h-12 w-12 place-items-center rounded-xl bg-olive text-white">
                 <TechIcon slug={tech.slug} />
               </div>
               <h3 className="mt-5 text-sm font-semibold uppercase tracking-widest text-ink-muted">
@@ -156,7 +156,7 @@ export default function TechnologyDetail({ params }: Params) {
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {others.map((t) => (
               <Link key={t.slug} href={`/technologies/${t.slug}`} className="card group">
-                <div className="icon-well h-11 w-11 transition-colors group-hover:bg-ink group-hover:text-white">
+                <div className="icon-well h-11 w-11 transition-colors group-hover:bg-olive group-hover:text-white">
                   <TechIcon slug={t.slug} />
                 </div>
                 <h3 className="mt-4 font-semibold text-ink">{t.name}</h3>

@@ -18,7 +18,7 @@ export default function PageHeader({
         {description && (
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted">{description}</p>
         )}
-        <div className="mt-8 h-1 w-20 rounded-full bg-ink" />
+        <div className="mt-8 h-1 w-20 rounded-full bg-olive" />
       </div>
     </section>
   );

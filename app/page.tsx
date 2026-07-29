@@ -2,11 +2,12 @@ import Link from "next/link";
 import { siteConfig } from "./lib/site";
 import { technologies } from "./lib/technologies";
 import { landingNav } from "./lib/landing-pages";
-import { services, stats, awards, work, testimonials, clients } from "./lib/content";
+import { services, stats, awards, work, testimonials } from "./lib/content";
 import Icon from "./components/Icon";
 import TechIcon from "./components/TechIcon";
 import CTA from "./components/CTA";
 import Reveal from "./components/Reveal";
+import ClientsCarousel from "./components/ClientsCarousel";
 
 export default function HomePage() {
   return (
@@ -60,8 +61,8 @@ export default function HomePage() {
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-ink p-3 text-white sm:bottom-5 sm:left-5 sm:right-5 sm:p-4">
-                <p className="text-[10px] font-semibold uppercase tracking-widest text-sage sm:text-xs">
+              <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-olive p-3 text-white sm:bottom-5 sm:left-5 sm:right-5 sm:p-4">
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-brand-100 sm:text-xs">
                   Featured
                 </p>
                 <p className="mt-1 text-sm font-semibold text-white sm:text-base">
@@ -73,12 +74,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-ink">
+      <section className="bg-olive">
         <div className="container-wc grid grid-cols-2 gap-6 py-12 md:grid-cols-4">
           {stats.map((s, i) => (
             <Reveal key={s.label} delay={i * 80} className="text-center">
               <p className="font-display text-3xl font-semibold text-white sm:text-4xl">{s.value}</p>
-              <p className="mt-1 text-sm text-sage">{s.label}</p>
+              <p className="mt-1 text-sm text-brand-100">{s.label}</p>
             </Reveal>
           ))}
         </div>
@@ -273,7 +274,7 @@ export default function HomePage() {
               <Reveal key={item.href} delay={(i % 3) * 60}>
                 <Link
                   href={item.href}
-                  className="flex items-center justify-between rounded-xl border-2 border-ink/15 bg-surface px-5 py-4 text-sm font-semibold text-ink transition hover:border-ink hover:bg-ink hover:text-white"
+                  className="flex items-center justify-between rounded-xl border-2 border-ink/15 bg-surface px-5 py-4 text-sm font-semibold text-ink transition hover:border-olive hover:bg-olive hover:text-white"
                 >
                   {item.label}
                   <Icon name="arrow" className="h-4 w-4 shrink-0 opacity-50" />
@@ -287,7 +288,7 @@ export default function HomePage() {
       <Reveal as="section" className="section-green">
         <div className="container-wc flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-sage">
+            <p className="text-sm font-semibold uppercase tracking-widest text-brand-100">
               Immersive technology studio
             </p>
             <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold text-white sm:text-4xl">
@@ -300,23 +301,15 @@ export default function HomePage() {
         </div>
       </Reveal>
 
-      <section className="section-white">
+      <section className="section-white overflow-hidden !pt-10 sm:!pt-12">
         <div className="container-wc">
           <Reveal>
             <p className="text-center text-sm font-semibold uppercase tracking-widest text-ink">
               Trusted by leading organisations
             </p>
           </Reveal>
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-            {clients.map((client, i) => (
-              <Reveal key={client} delay={(i % 4) * 50}>
-                <div className="grid place-items-center rounded-xl border border-ink/15 bg-paper px-4 py-6 text-center text-sm font-medium text-ink">
-                  {client}
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
+        <ClientsCarousel />
       </section>
 
       <Reveal>

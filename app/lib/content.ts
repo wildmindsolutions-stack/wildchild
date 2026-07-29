@@ -34,7 +34,7 @@ export const services = [
 export const stats = [
   { value: "10+", label: "Years of experience" },
   { value: "200+", label: "Projects delivered" },
-  { value: "14+", label: "Trusted clients" },
+  { value: "19+", label: "Trusted clients" },
   { value: "9", label: "Technologies mastered" }
 ];
 
@@ -122,18 +122,23 @@ export const testimonials = [
 ];
 
 export const clients = [
-  "Hindu Spiritual & Service Fair",
-  "Daxini Cha Raja",
-  "ADK Engineering & Solutions",
-  "Dev Dye Chem Industries",
-  "Dholera SIR",
-  "Bharatiya Janata Party",
-  "ABVP",
-  "Acticon Life Sciences",
-  "Chalo India 2018",
-  "Commissioner of Geology & Mining",
-  "Vibrant Gujarat 2019",
-  "Flocare",
-  "Ahmedabad Metro",
-  "Vama Communications"
+  { name: "Hindu Spiritual & Service Fair", logo: "/images/Logo (1)/1.png" },
+  { name: "Daxini Cha Raja", logo: "/images/Logo (1)/2.png" },
+  { name: "ADK Engineering & Solutions", logo: "/images/Logo (1)/3.png" },
+  { name: "Dev Dye Chem Industries", logo: "/images/Logo (1)/4.png" },
+  { name: "Dholera SIR", logo: "/images/Logo (1)/5.png" },
+  { name: "Bharatiya Janata Party", logo: "/images/Logo (1)/6.png" },
+  { name: "ABVP", logo: "/images/Logo (1)/7.png" },
+  { name: "Acticon Life Sciences", logo: "/images/Logo (1)/8.png" },
+  { name: "Chalo India 2018", logo: "/images/Logo (1)/9.png" },
+  { name: "Commissioner of Geology & Mining", logo: "/images/Logo (1)/10.png" },
+  { name: "Vibrant Gujarat 2019", logo: "/images/Logo (1)/11.png" },
+  { name: "Flocare", logo: "/images/Logo (1)/12.png" },
+  { name: "Ahmedabad Metro", logo: "/images/Logo (1)/13.png" },
+  { name: "Vama Communications", logo: "/images/Logo (1)/14.png" },
+  { name: "Wild West Academy", logo: "/images/Logo (1)/15.png" },
+  { name: "Premium Labels", logo: "/images/Logo (1)/16.png" },
+  { name: "State Bank of India", logo: "/images/Logo (1)/17.png" },
+  { name: "Devum Research", logo: "/images/Logo (1)/Devum research.png" },
+  { name: "ARG", logo: "/images/Logo (1)/1630661315588.jfif" }
 ];

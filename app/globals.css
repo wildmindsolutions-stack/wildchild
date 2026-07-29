@@ -5,11 +5,11 @@
 :root {
   --font-sans: "DM Sans", system-ui, sans-serif;
   --font-display: "Cormorant Garamond", Georgia, serif;
-  --ebony: #414833;
-  --reseda: #737a5d;
-  --sage: #a4ac86;
-  --dun: #ccbfa3;
-  --bone: #ebe3d2;
+  --forest: #2f4a3a;
+  --olive: #6e7c61;
+  --taupe: #9b8d7a;
+  --beige: #d8c8b4;
+  --linen: #ede5d8;
   --surface: #ffffff;
 }
 
@@ -31,16 +31,16 @@ body {
   }
 
   .btn-primary {
-    @apply btn bg-ink text-white shadow-md shadow-ink/25 hover:bg-brand-700 hover:-translate-y-0.5;
+    @apply btn bg-olive text-white shadow-md shadow-ink/20 hover:bg-ink hover:-translate-y-0.5;
   }
 
   .btn-ghost {
-    @apply btn border-2 border-ink bg-surface text-ink hover:bg-ink hover:text-white;
+    @apply btn border-2 border-olive bg-surface text-ink hover:bg-olive hover:text-white;
   }
 
-  /* Green chip / tag — used in hero + section labels */
+  /* Olive chip / tag — used in hero + section labels */
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full bg-ink px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white;
+    @apply inline-flex items-center gap-2 rounded-full bg-olive px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white;
   }
 
   .eyebrow-soft {
@@ -63,31 +63,31 @@ body {
     @apply section bg-surface;
   }
 
-  /* Strong green band for mid-page emphasis */
+  /* Olive band for mid-page emphasis */
   .section-green {
-    @apply section bg-ink text-white;
+    @apply section bg-olive text-white;
   }
 
   .h-section {
     @apply font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl md:text-5xl;
   }
 
-  /* Solid dark-green icon tiles */
+  /* Solid olive icon tiles */
   .icon-well {
-    @apply grid place-items-center rounded-xl bg-ink text-white;
+    @apply grid place-items-center rounded-xl bg-olive text-white;
   }
 
   .icon-well-soft {
     @apply grid place-items-center rounded-xl bg-sage/40 text-ink;
   }
 
-  /* Dark green highlight panels throughout pages */
+  /* Olive highlight panels throughout pages */
   .accent-panel {
-    @apply rounded-3xl bg-ink text-white;
+    @apply rounded-3xl bg-olive text-white;
   }
 
   .accent-panel-soft {
-    @apply rounded-3xl bg-brand-500 text-white;
+    @apply rounded-3xl bg-olive-dark text-white;
   }
 
   .link-green {
@@ -95,19 +95,19 @@ body {
   }
 
   .check-dot {
-    @apply grid h-6 w-6 shrink-0 place-items-center rounded-full bg-ink text-white;
+    @apply grid h-6 w-6 shrink-0 place-items-center rounded-full bg-olive text-white;
   }
 }
 
 .text-gradient {
-  color: #414833;
+  color: #2f4a3a;
   background: none;
 }
 
 .grid-bg {
   background-image:
-    linear-gradient(to right, rgba(65, 72, 51, 0.07) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(65, 72, 51, 0.07) 1px, transparent 1px);
+    linear-gradient(to right, rgba(47, 74, 58, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(47, 74, 58, 0.07) 1px, transparent 1px);
   background-size: 44px 44px;
 }
 
@@ -131,5 +131,30 @@ body {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+/* Trusted-by clients marquee */
+@keyframes clients-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.clients-marquee {
+  animation: clients-marquee 45s linear infinite;
+  will-change: transform;
+}
+
+.clients-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients-marquee {
+    animation: none;
   }
 }

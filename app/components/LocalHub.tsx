@@ -56,7 +56,7 @@ export default function LocalHub({ hub }: { hub: LocationHub }) {
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {hub.highlights.map((h) => (
                 <li key={h} className="flex items-start gap-3">
-                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-ink text-white">
+                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-olive text-white">
                     <Icon name="check" className="h-3.5 w-3.5" />
                   </span>
                   <span className="text-sm text-ink-soft">{h}</span>

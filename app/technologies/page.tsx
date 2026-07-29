@@ -36,7 +36,7 @@ export default function TechnologiesPage() {
         <div className="container-wc grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {technologies.map((tech) => (
             <Link key={tech.slug} href={`/technologies/${tech.slug}`} className="card group flex flex-col">
-              <div className="icon-well h-12 w-12 transition-colors group-hover:bg-ink group-hover:text-white">
+              <div className="icon-well h-12 w-12 transition-colors group-hover:bg-olive group-hover:text-white">
                 <TechIcon slug={tech.slug} />
               </div>
               <h2 className="mt-5 text-lg font-semibold text-ink">{tech.name}</h2>

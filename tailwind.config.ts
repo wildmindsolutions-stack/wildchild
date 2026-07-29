@@ -1,13 +1,13 @@
 import type { Config } from "tailwindcss";
 
 /**
- * Palette (user swatches) applied like the reference site:
- * Ebony #414833  → buttons, footer, headings, icons
- * Reseda #737A5D → accent / highlight boxes (sage CTA blocks)
- * Sage #A4AC86   → soft accents, icon washes
- * Dun #CCBFA3    → chips, soft borders
- * Bone #EBE3D2   → cream section backgrounds
- * White #FFFFFF  → navbar + cards
+ * Palette (user swatches):
+ * Forest Green #2F4A3A   → all text, headings, hover states
+ * Olive Sage #6E7C61     → buttons, filled boxes, bands, icon tiles
+ * Mushroom Taupe #9B8D7A → muted accents
+ * Warm Beige #D8C8B4     → chips, soft borders
+ * Linen Cream #EDE5D8    → cream section backgrounds
+ * White #FFFFFF          → navbar + cards
  */
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}"],
@@ -15,28 +15,34 @@ const config: Config = {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#414833",
-          soft: "#5a6248",
-          muted: "#737A5D"
+          DEFAULT: "#2F4A3A",
+          soft: "#3B5A47",
+          muted: "#5C6B55"
+        },
+        olive: {
+          DEFAULT: "#6E7C61",
+          dark: "#5B6852",
+          light: "#8B9779"
         },
         brand: {
-          50: "#f4f2ea",
-          100: "#EBE3D2",
-          200: "#CCBFA3",
-          300: "#A4AC86",
-          400: "#8b9370",
-          500: "#737A5D",
-          600: "#414833",
-          700: "#323828",
-          800: "#2a2f22"
+          50: "#F7F4ED",
+          100: "#EDE5D8",
+          200: "#D8C8B4",
+          300: "#9B8D7A",
+          400: "#8B9779",
+          500: "#6E7C61",
+          600: "#5B6852",
+          700: "#2F4A3A",
+          800: "#24382C"
         },
         accent: {
-          DEFAULT: "#737A5D",
-          soft: "#A4AC86"
+          DEFAULT: "#6E7C61",
+          soft: "#9B8D7A"
         },
-        dun: "#CCBFA3",
-        sage: "#A4AC86",
-        paper: "#EBE3D2",
+        dun: "#D8C8B4",
+        taupe: "#9B8D7A",
+        sage: "#A8B598",
+        paper: "#EDE5D8",
         surface: "#FFFFFF"
       },
       fontFamily: {

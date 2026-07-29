@@ -91,7 +91,7 @@ export default function ServicesPage() {
                     key={d}
                     className="flex items-start gap-3 rounded-xl bg-paper px-4 py-3"
                   >
-                    <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-ink text-white">
+                    <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-olive text-white">
                       <Icon name="check" className="h-3 w-3" />
                     </span>
                     <span className="text-sm font-medium text-ink-soft">{d}</span>

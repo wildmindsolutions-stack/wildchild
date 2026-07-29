@@ -58,7 +58,7 @@ export default function SolutionsPage() {
               <Link
                 key={hub.href}
                 href={hub.href}
-                className="rounded-xl border border-ink/[0.06] bg-ink px-5 py-6 text-center text-sm font-semibold text-white transition hover:bg-brand-600"
+                className="rounded-xl border border-ink/[0.06] bg-olive px-5 py-6 text-center text-sm font-semibold text-white transition hover:bg-brand-600"
               >
                 Best in {hub.name}
               </Link>

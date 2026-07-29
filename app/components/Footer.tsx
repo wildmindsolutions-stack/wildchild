@@ -21,7 +21,7 @@ export default function Footer() {
   );
 
   return (
-    <footer className="border-t border-ink/[0.06] bg-ink text-white/80">
+    <footer className="border-t border-ink/[0.06] bg-olive text-white/85">
       <div className="container-wc grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <BrandLogo size="footer" />
@@ -83,7 +83,7 @@ export default function Footer() {
               </li>
             ))}
             <li>
-              <Link href="/solutions" className="font-semibold text-white hover:text-sage">
+              <Link href="/solutions" className="font-semibold text-white hover:text-brand-100">
                 View all solutions →
               </Link>
             </li>

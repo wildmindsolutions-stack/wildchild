@@ -15,7 +15,7 @@ export default function FloatingContact() {
         href={`tel:${PHONE_TEL}`}
         aria-label={`Call ${PHONE_DISPLAY}`}
         title={`Call ${PHONE_DISPLAY}`}
-        className="pointer-events-auto grid h-11 w-11 place-items-center rounded-full bg-[#5a6248] text-white shadow-md shadow-ink/20 transition hover:scale-105 hover:bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink sm:h-12 sm:w-12"
+        className="pointer-events-auto grid h-11 w-11 place-items-center rounded-full bg-olive text-white shadow-md shadow-ink/20 transition hover:scale-105 hover:bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink sm:h-12 sm:w-12"
       >
         <svg
           className="h-5 w-5"
