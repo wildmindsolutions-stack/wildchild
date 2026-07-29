@@ -122,7 +122,7 @@ export const testimonials = [
 ];
 
 const greenLogo = (file: string) =>
-  `/images/green logos/${encodeURIComponent(file).replace(/%2F/g, "/")}`;
+  `/images/green%20logos/${encodeURIComponent(file)}`;
 
 export const clients = [
   { name: "Hindu Spiritual & Service Fair", logo: greenLogo("1.png") },
