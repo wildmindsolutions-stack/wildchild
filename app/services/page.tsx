@@ -65,7 +65,7 @@ export default function ServicesPage() {
         description="Product display is easy — making it interesting and interactive is our job. From concept to show day, we handle it all."
       />
 
-      <section className="section">
+      <section className="section-page">
         <div className="container-wc space-y-6">
           {services.map((service, i) => (
             <div

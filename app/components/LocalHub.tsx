@@ -42,7 +42,7 @@ export default function LocalHub({ hub }: { hub: LocationHub }) {
       />
       <PageHeader eyebrow={`Serving ${hub.name}`} title={hub.h1} description={hub.lead} />
 
-      <section className="section-cream">
+      <section className="section-page-cream">
         <div className="container-wc grid gap-12 lg:grid-cols-[1.3fr,1fr]">
           <div>
             {hub.overview.map((p) => (

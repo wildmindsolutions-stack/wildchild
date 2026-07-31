@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { siteConfig } from "./lib/site";
 import { technologies } from "./lib/technologies";
-import { landingNav } from "./lib/landing-pages";
-import { services, stats, awards, work, testimonials } from "./lib/content";
+import { services, stats, work, testimonials } from "./lib/content";
 import Icon from "./components/Icon";
-import TechIcon from "./components/TechIcon";
 import CTA from "./components/CTA";
 import Reveal from "./components/Reveal";
 import ClientsCarousel from "./components/ClientsCarousel";
+import SolutionsGrid from "./components/SolutionsGrid";
+import TechnologiesGrid from "./components/TechnologiesGrid";
+import AwardsGrid from "./components/AwardsGrid";
 
 export default function HomePage() {
   return (
@@ -148,23 +149,7 @@ export default function HomePage() {
               All technologies
             </Link>
           </Reveal>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {technologies.map((tech, i) => (
-              <Reveal key={tech.slug} delay={(i % 3) * 90}>
-                <Link href={`/technologies/${tech.slug}`} className="card group block h-full">
-                  <div className="flex items-start gap-4">
-                    <div className="icon-well h-12 w-12 shrink-0">
-                      <TechIcon slug={tech.slug} />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-semibold text-ink">{tech.name}</h3>
-                      <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">{tech.short}</p>
-                    </div>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
+          <TechnologiesGrid />
         </div>
       </section>
 
@@ -215,18 +200,7 @@ export default function HomePage() {
               showcases.
             </p>
           </Reveal>
-          <div className="mt-10 grid gap-3 sm:grid-cols-2">
-            {awards.map((award, i) => (
-              <Reveal key={award} delay={(i % 2) * 80}>
-                <div className="flex items-center gap-3 rounded-xl border border-ink/[0.08] bg-surface px-5 py-4">
-                  <span className="check-dot">
-                    <Icon name="check" className="h-4 w-4" />
-                  </span>
-                  <span className="text-sm font-medium text-ink">{award}</span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <AwardsGrid />
         </div>
       </section>
 
@@ -265,19 +239,7 @@ export default function HomePage() {
               page for your project in Ahmedabad, Gujarat or anywhere in India.
             </p>
           </Reveal>
-          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {landingNav.map((item, i) => (
-              <Reveal key={item.href} delay={(i % 3) * 60}>
-                <Link
-                  href={item.href}
-                  className="flex items-center justify-between rounded-xl border-2 border-ink/15 bg-surface px-5 py-4 text-sm font-semibold text-ink transition hover:border-olive hover:bg-olive hover:text-white"
-                >
-                  {item.label}
-                  <Icon name="arrow" className="h-4 w-4 shrink-0 opacity-50" />
-                </Link>
-              </Reveal>
-            ))}
-          </div>
+          <SolutionsGrid />
         </div>
       </section>
 

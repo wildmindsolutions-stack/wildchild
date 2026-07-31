@@ -47,7 +47,7 @@ export default function AboutPage() {
         description="A perfect mix of technical know-how, concept explorers, a never-give-up spirit and hard work — we are a team of people who deliver the best, in time and precise."
       />
 
-      <section className="section">
+      <section className="section-page">
         <div className="container-wc grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="relative overflow-hidden rounded-3xl border border-ink/10 shadow-xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}

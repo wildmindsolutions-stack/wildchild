@@ -48,7 +48,7 @@ export default function SeoLanding({ page }: { page: LandingPage }) {
       />
       <PageHeader eyebrow={page.eyebrow} title={page.h1} description={page.lead} />
 
-      <section className="section">
+      <section className="section-page">
         <div className="container-wc grid gap-12 lg:grid-cols-[1.4fr,1fr]">
           <div>
             <span className="eyebrow">Why WildChild Studios</span>

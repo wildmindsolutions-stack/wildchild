@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "../components/PageHeader";
 import ContactForm from "../components/ContactForm";
+import ContactInfo from "../components/ContactInfo";
 import { siteConfig } from "../lib/site";
 
 export const metadata: Metadata = {
@@ -48,48 +49,10 @@ export default function ContactPage() {
         description="Tell us about your event, exhibition or space and we'll get back to you quickly."
       />
 
-      <section className="section">
-        <div className="container-wc grid gap-12 lg:grid-cols-[1fr,1.2fr]">
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-sm font-semibold uppercase tracking-widest text-ink-muted">
-                Talk to us
-              </h2>
-              <div className="mt-4 space-y-2">
-                <a
-                  href={`tel:${siteConfig.phoneHref}`}
-                  className="block text-lg font-semibold text-ink hover:text-brand-600"
-                >
-                  {siteConfig.phone}
-                </a>
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="block text-lg font-semibold text-ink hover:text-brand-600"
-                >
-                  {siteConfig.email}
-                </a>
-              </div>
-            </div>
-
-            {siteConfig.offices.map((office) => (
-              <div key={office.label}>
-                <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-muted">
-                  {office.label}
-                </h3>
-                <address className="mt-3 not-italic text-ink-soft">
-                  {office.lines.map((line) => (
-                    <span key={line} className="block">
-                      {line}
-                    </span>
-                  ))}
-                </address>
-              </div>
-            ))}
-          </div>
-
-          <div className="rounded-3xl border border-ink/[0.06] bg-white p-6 shadow-sm sm:p-8">
-            <ContactForm />
-          </div>
+      <section className="section-page">
+        <div className="container-wc grid gap-10 lg:grid-cols-[1fr,1.15fr] lg:gap-12">
+          <ContactInfo />
+          <ContactForm />
         </div>
       </section>
     </>

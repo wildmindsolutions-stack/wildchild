@@ -26,7 +26,7 @@ export default function WorkPage() {
         description="We've worked on some awesome projects across events, exhibitions and cultural showcases. Here's a taste of what we build."
       />
 
-      <section className="section">
+      <section className="section-page">
         <div className="container-wc grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {work.map((project) => (
             <article

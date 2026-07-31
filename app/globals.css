@@ -55,6 +55,19 @@ body {
     @apply py-20 sm:py-28;
   }
 
+  /* Tighter spacing for page content directly below PageHeader */
+  .section-page {
+    @apply pt-8 pb-16 sm:pt-10 sm:pb-20;
+  }
+
+  .section-page-cream {
+    @apply section-page bg-paper;
+  }
+
+  .section-page-white {
+    @apply section-page bg-surface;
+  }
+
   .section-cream {
     @apply section bg-paper;
   }
@@ -155,6 +168,830 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .clients-marquee {
+    animation: none;
+  }
+}
+
+/* Shared interactive card grid — isolated hover, no row shift */
+.interactive-grid {
+  @apply grid items-start gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3;
+}
+
+.solution-card-cell,
+.tech-card-cell {
+  @apply relative min-h-0;
+}
+
+/* Homepage solutions grid — interactive cards */
+.solution-card {
+  @apply relative z-0 overflow-hidden rounded-2xl border border-ink/10 bg-surface;
+  box-shadow: 0 1px 3px rgba(47, 74, 58, 0.06);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    z-index 0s;
+}
+
+.solution-card-shine {
+  @apply pointer-events-none absolute inset-0 opacity-0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 60%
+  );
+  transform: translateX(-120%);
+  transition:
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease;
+}
+
+.solution-card-glow {
+  @apply pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full opacity-0;
+  background: radial-gradient(circle, rgba(110, 124, 97, 0.22) 0%, transparent 70%);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.solution-card-icon {
+  @apply grid h-11 w-11 place-items-center rounded-xl bg-olive/10 text-olive;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.45s ease,
+    color 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.solution-card-arrow {
+  @apply grid h-9 w-9 shrink-0 place-items-center rounded-full border border-ink/10 text-ink/40;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.45s ease,
+    border-color 0.45s ease,
+    color 0.45s ease;
+}
+
+.solution-card-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 3.25rem;
+  transition: color 0.35s ease;
+}
+
+@media (min-width: 640px) {
+  .solution-card-title {
+    min-height: 3.5rem;
+  }
+}
+
+.solution-card-lead {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 4.5rem;
+  transition: color 0.35s ease;
+}
+
+.solution-card-cta {
+  @apply text-olive/70;
+  transition: color 0.35s ease, letter-spacing 0.35s ease;
+}
+
+.solution-card:hover,
+.solution-card:focus-visible {
+  @apply z-20 border-olive/40;
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 40px rgba(47, 74, 58, 0.12),
+    0 8px 16px rgba(47, 74, 58, 0.06);
+}
+
+.solution-card:hover .solution-card-shine,
+.solution-card:focus-visible .solution-card-shine {
+  opacity: 1;
+  transform: translateX(120%);
+}
+
+.solution-card:hover .solution-card-glow,
+.solution-card:focus-visible .solution-card-glow {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.solution-card:hover .solution-card-icon,
+.solution-card:focus-visible .solution-card-icon {
+  @apply bg-olive text-white;
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: 0 8px 20px rgba(110, 124, 97, 0.35);
+}
+
+.solution-card:hover .solution-card-arrow,
+.solution-card:focus-visible .solution-card-arrow {
+  @apply border-olive bg-olive text-white;
+  transform: translateX(4px);
+}
+
+.solution-card:hover .solution-card-title,
+.solution-card:focus-visible .solution-card-title {
+  @apply text-ink;
+}
+
+.solution-card:hover .solution-card-lead,
+.solution-card:focus-visible .solution-card-lead {
+  @apply text-ink-soft;
+}
+
+.solution-card:hover .solution-card-cta,
+.solution-card:focus-visible .solution-card-cta {
+  @apply text-olive;
+  letter-spacing: 0.12em;
+}
+
+.solution-card:focus-visible {
+  @apply outline-none ring-2 ring-olive/50 ring-offset-2 ring-offset-paper;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .solution-card,
+  .solution-card-shine,
+  .solution-card-glow,
+  .solution-card-icon,
+  .solution-card-arrow,
+  .solution-card-title,
+  .solution-card-lead,
+  .solution-card-cta {
+    transition: none;
+  }
+
+  .solution-card:hover,
+  .solution-card:focus-visible {
+    transform: none;
+  }
+
+  .solution-card:hover .solution-card-shine,
+  .solution-card:focus-visible .solution-card-shine {
+    transform: none;
+    opacity: 0;
+  }
+
+  .solution-card:hover .solution-card-icon,
+  .solution-card:focus-visible .solution-card-icon {
+    transform: none;
+  }
+
+  .solution-card:hover .solution-card-arrow,
+  .solution-card:focus-visible .solution-card-arrow {
+    transform: none;
+  }
+}
+
+/* Homepage technologies grid — interactive cards */
+.tech-card {
+  @apply relative z-0 overflow-hidden rounded-2xl border border-ink/10 bg-surface;
+  box-shadow: 0 1px 3px rgba(47, 74, 58, 0.06);
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.45s ease,
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tech-card-shine {
+  @apply pointer-events-none absolute inset-0 opacity-0;
+  background: linear-gradient(
+    120deg,
+    transparent 35%,
+    rgba(168, 181, 152, 0.25) 50%,
+    transparent 65%
+  );
+  transform: translateX(-130%) skewX(-12deg);
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+}
+
+.tech-card-accent {
+  @apply pointer-events-none absolute bottom-0 left-0 h-1 w-0 bg-olive;
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tech-card-index {
+  @apply pointer-events-none absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-olive/15 font-display text-base font-bold text-olive;
+  transition:
+    color 0.45s ease,
+    background-color 0.45s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
+}
+
+.tech-card-icon {
+  @apply grid h-12 w-12 place-items-center rounded-xl bg-olive text-white;
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease,
+    background-color 0.45s ease;
+}
+
+.tech-card-icon svg {
+  @apply h-6 w-6;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tech-card-arrow {
+  @apply grid h-8 w-8 place-items-center rounded-full border border-ink/10 text-ink/30 opacity-0;
+  transform: translateX(-6px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.tech-card-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 3rem;
+  transition: color 0.35s ease;
+}
+
+@media (min-width: 640px) {
+  .tech-card-title {
+    min-height: 3.25rem;
+  }
+}
+
+.tech-card-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.75rem;
+  transition: color 0.35s ease;
+}
+
+.tech-card-cta {
+  @apply mt-4 min-h-[1.25rem] text-olive/0;
+  transition: color 0.35s ease, letter-spacing 0.35s ease;
+}
+
+.tech-card:hover,
+.tech-card:focus-visible {
+  @apply z-20 border-olive/35;
+  transform: translateY(-5px);
+  box-shadow:
+    0 18px 36px rgba(47, 74, 58, 0.11),
+    0 6px 14px rgba(47, 74, 58, 0.05);
+}
+
+.tech-card:hover .tech-card-shine,
+.tech-card:focus-visible .tech-card-shine {
+  opacity: 1;
+  transform: translateX(130%) skewX(-12deg);
+}
+
+.tech-card:hover .tech-card-accent,
+.tech-card:focus-visible .tech-card-accent {
+  @apply w-full;
+}
+
+.tech-card:hover .tech-card-index,
+.tech-card:focus-visible .tech-card-index {
+  @apply bg-olive text-white;
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(110, 124, 97, 0.35);
+}
+
+.tech-card:hover .tech-card-icon,
+.tech-card:focus-visible .tech-card-icon {
+  @apply bg-ink;
+  transform: rotate(-6deg) scale(1.06);
+  box-shadow: 0 10px 24px rgba(47, 74, 58, 0.28);
+}
+
+.tech-card:hover .tech-card-icon svg,
+.tech-card:focus-visible .tech-card-icon svg {
+  transform: scale(1.1);
+}
+
+.tech-card:hover .tech-card-arrow,
+.tech-card:focus-visible .tech-card-arrow {
+  @apply border-olive bg-olive text-white opacity-100;
+  transform: translateX(0);
+}
+
+.tech-card:hover .tech-card-desc,
+.tech-card:focus-visible .tech-card-desc {
+  @apply text-ink-soft;
+}
+
+.tech-card:hover .tech-card-cta,
+.tech-card:focus-visible .tech-card-cta {
+  @apply text-olive;
+  letter-spacing: 0.1em;
+}
+
+.tech-card:focus-visible {
+  @apply outline-none ring-2 ring-olive/50 ring-offset-2 ring-offset-paper;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-card,
+  .tech-card-shine,
+  .tech-card-accent,
+  .tech-card-index,
+  .tech-card-icon,
+  .tech-card-icon svg,
+  .tech-card-arrow,
+  .tech-card-desc,
+  .tech-card-cta {
+    transition: none;
+  }
+
+  .tech-card:hover,
+  .tech-card:focus-visible {
+    transform: none;
+  }
+
+  .tech-card:hover .tech-card-shine,
+  .tech-card:focus-visible .tech-card-shine {
+    transform: none;
+    opacity: 0;
+  }
+
+  .tech-card:hover .tech-card-icon,
+  .tech-card:focus-visible .tech-card-icon {
+    transform: none;
+  }
+
+  .tech-card:hover .tech-card-arrow,
+  .tech-card:focus-visible .tech-card-arrow {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* Solutions page — location hub cards */
+.location-hub-grid {
+  @apply grid items-start gap-4 sm:grid-cols-3 sm:gap-5;
+}
+
+.location-card-cell {
+  @apply relative min-h-0;
+}
+
+.location-card {
+  @apply relative z-0 overflow-hidden rounded-2xl border border-olive-dark/30 bg-olive;
+  box-shadow: 0 4px 14px rgba(47, 74, 58, 0.15);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.45s ease,
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.location-card-shine {
+  @apply pointer-events-none absolute inset-0 opacity-0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 60%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+}
+
+.location-card-glow {
+  @apply pointer-events-none absolute -left-6 -top-6 h-28 w-28 rounded-full opacity-0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.location-card-tag {
+  @apply inline-flex rounded-full border border-white/25 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/80;
+  transition: background-color 0.35s ease, border-color 0.35s ease;
+}
+
+.location-card-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.75rem;
+  transition: color 0.35s ease;
+}
+
+.location-card-lead {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 4.5rem;
+  transition: color 0.35s ease;
+}
+
+.location-card-cta {
+  transition: color 0.35s ease, letter-spacing 0.35s ease, transform 0.35s ease;
+}
+
+.location-card:hover,
+.location-card:focus-visible {
+  @apply z-20 border-white/25 bg-ink;
+  transform: translateY(-5px);
+  box-shadow:
+    0 20px 40px rgba(47, 74, 58, 0.22),
+    0 8px 16px rgba(47, 74, 58, 0.1);
+}
+
+.location-card:hover .location-card-shine,
+.location-card:focus-visible .location-card-shine {
+  opacity: 1;
+  transform: translateX(120%);
+}
+
+.location-card:hover .location-card-glow,
+.location-card:focus-visible .location-card-glow {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.location-card:hover .location-card-tag,
+.location-card:focus-visible .location-card-tag {
+  @apply border-white/40 bg-white/10;
+}
+
+.location-card:hover .location-card-cta,
+.location-card:focus-visible .location-card-cta {
+  @apply text-white;
+  letter-spacing: 0.12em;
+}
+
+.location-card:hover .location-card-cta svg,
+.location-card:focus-visible .location-card-cta svg {
+  transform: translateX(4px);
+}
+
+.location-card:focus-visible {
+  @apply outline-none ring-2 ring-white/40 ring-offset-2 ring-offset-paper;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .location-card,
+  .location-card-shine,
+  .location-card-glow,
+  .location-card-tag,
+  .location-card-title,
+  .location-card-lead,
+  .location-card-cta {
+    transition: none;
+  }
+
+  .location-card:hover,
+  .location-card:focus-visible {
+    transform: none;
+  }
+
+  .location-card:hover .location-card-shine,
+  .location-card:focus-visible .location-card-shine {
+    transform: none;
+    opacity: 0;
+  }
+}
+
+/* Homepage awards grid — interactive cards */
+.awards-grid {
+  @apply grid items-start gap-4 sm:grid-cols-2;
+}
+
+.award-card-cell {
+  @apply relative min-h-0;
+}
+
+.award-card {
+  @apply relative z-0 overflow-hidden rounded-2xl border border-ink/10 bg-surface;
+  box-shadow: 0 1px 3px rgba(47, 74, 58, 0.06);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.45s ease,
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.award-card-shine {
+  @apply pointer-events-none absolute inset-0 opacity-0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 60%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+}
+
+.award-card-accent {
+  @apply pointer-events-none absolute bottom-0 left-0 top-0 w-1 scale-y-0 bg-olive;
+  transform-origin: bottom;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.award-card-index {
+  @apply grid h-10 w-10 shrink-0 place-items-center rounded-full bg-olive/15 font-display text-sm font-bold text-olive;
+  transition:
+    background-color 0.45s ease,
+    color 0.45s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
+}
+
+.award-card-icon {
+  @apply grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-olive/10 text-olive;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.45s ease,
+    color 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.award-card-title {
+  transition: color 0.35s ease;
+}
+
+.award-card-check {
+  @apply grid h-8 w-8 shrink-0 place-items-center rounded-full border border-ink/10 text-ink/25 opacity-0;
+  transform: scale(0.85);
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.award-card:hover,
+.award-card:focus-within {
+  @apply z-20 border-olive/35;
+  transform: translateY(-4px);
+  box-shadow:
+    0 16px 32px rgba(47, 74, 58, 0.1),
+    0 6px 12px rgba(47, 74, 58, 0.05);
+}
+
+.award-card:hover .award-card-shine,
+.award-card:focus-within .award-card-shine {
+  opacity: 1;
+  transform: translateX(120%);
+}
+
+.award-card:hover .award-card-accent,
+.award-card:focus-within .award-card-accent {
+  transform: scaleY(1);
+}
+
+.award-card:hover .award-card-index,
+.award-card:focus-within .award-card-index {
+  @apply bg-olive text-white;
+  transform: scale(1.06);
+  box-shadow: 0 6px 14px rgba(110, 124, 97, 0.3);
+}
+
+.award-card:hover .award-card-icon,
+.award-card:focus-within .award-card-icon {
+  @apply bg-olive text-white;
+  transform: rotate(-8deg) scale(1.05);
+  box-shadow: 0 8px 18px rgba(110, 124, 97, 0.3);
+}
+
+.award-card:hover .award-card-title,
+.award-card:focus-within .award-card-title {
+  @apply text-ink;
+}
+
+.award-card:hover .award-card-check,
+.award-card:focus-within .award-card-check {
+  @apply border-olive bg-olive text-white opacity-100;
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .award-card,
+  .award-card-shine,
+  .award-card-accent,
+  .award-card-index,
+  .award-card-icon,
+  .award-card-title,
+  .award-card-check {
+    transition: none;
+  }
+
+  .award-card:hover,
+  .award-card:focus-within {
+    transform: none;
+  }
+
+  .award-card:hover .award-card-shine,
+  .award-card:focus-within .award-card-shine {
+    transform: none;
+    opacity: 0;
+  }
+
+  .award-card:hover .award-card-icon,
+  .award-card:focus-within .award-card-icon {
+    transform: none;
+  }
+
+  .award-card:hover .award-card-check,
+  .award-card:focus-within .award-card-check {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* Contact page — interactive info cards & form */
+.contact-quick-btn {
+  @apply inline-flex items-center gap-2 rounded-full border border-ink/15 bg-surface px-4 py-2 text-sm font-semibold text-ink shadow-sm transition-all duration-300;
+}
+
+.contact-quick-btn:hover {
+  @apply border-olive bg-olive text-white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(110, 124, 97, 0.25);
+}
+
+.contact-card-cell {
+  @apply relative min-h-0;
+}
+
+.contact-card {
+  @apply relative z-0 overflow-hidden rounded-2xl border border-ink/10 bg-surface p-5;
+  box-shadow: 0 1px 3px rgba(47, 74, 58, 0.06);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.45s ease,
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-card-shine {
+  @apply pointer-events-none absolute inset-0 opacity-0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 60%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+}
+
+.contact-card-accent {
+  @apply pointer-events-none absolute bottom-0 left-0 top-0 w-1 scale-y-0 bg-olive;
+  transform-origin: bottom;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-card-icon {
+  @apply grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-olive/10 text-olive transition-all duration-300;
+}
+
+.contact-card-arrow {
+  @apply grid h-8 w-8 shrink-0 place-items-center rounded-full border border-ink/10 text-ink/30 opacity-0 transition-all duration-300;
+  transform: translateX(-4px);
+}
+
+.contact-card:hover,
+.contact-card:focus-visible {
+  @apply z-10 border-olive/35;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(47, 74, 58, 0.1);
+}
+
+.contact-card:hover .contact-card-shine,
+.contact-card:focus-visible .contact-card-shine {
+  opacity: 1;
+  transform: translateX(120%);
+}
+
+.contact-card:hover .contact-card-accent,
+.contact-card:focus-visible .contact-card-accent {
+  transform: scaleY(1);
+}
+
+.contact-card:hover .contact-card-icon,
+.contact-card:focus-visible .contact-card-icon {
+  @apply bg-olive text-white;
+  transform: rotate(-6deg) scale(1.05);
+}
+
+.contact-card:hover .contact-card-arrow,
+.contact-card:focus-visible .contact-card-arrow {
+  @apply border-olive bg-olive text-white opacity-100;
+  transform: translateX(0);
+}
+
+.contact-form-panel {
+  @apply relative overflow-hidden rounded-3xl border border-ink/10 bg-surface p-6 shadow-sm sm:p-8;
+  transition:
+    border-color 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.contact-form-panel:hover {
+  @apply border-olive/25;
+  box-shadow: 0 16px 40px rgba(47, 74, 58, 0.08);
+}
+
+.contact-form-shine {
+  @apply pointer-events-none absolute inset-0 opacity-0;
+  background: linear-gradient(
+    120deg,
+    transparent 35%,
+    rgba(168, 181, 152, 0.15) 50%,
+    transparent 65%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+}
+
+.contact-form-panel:hover .contact-form-shine {
+  opacity: 1;
+  transform: translateX(130%);
+}
+
+.contact-field {
+  @apply relative;
+}
+
+.contact-label {
+  @apply mb-1.5 block text-sm font-medium text-ink-muted transition-colors duration-200;
+}
+
+.contact-field:focus-within .contact-label {
+  @apply text-olive;
+}
+
+.contact-input {
+  @apply w-full rounded-xl border border-ink/10 bg-paper px-4 py-3 text-sm text-ink outline-none transition-all duration-300;
+}
+
+.contact-input:hover {
+  @apply border-ink/20 bg-surface;
+}
+
+.contact-input:focus {
+  @apply border-olive bg-surface;
+  box-shadow: 0 0 0 3px rgba(110, 124, 97, 0.15);
+  transform: translateY(-1px);
+}
+
+.contact-textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.contact-submit:disabled {
+  @apply cursor-not-allowed opacity-70;
+}
+
+.contact-submit:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+.contact-success {
+  @apply py-10 text-center;
+}
+
+.contact-success-icon {
+  @apply mx-auto grid h-16 w-16 place-items-center rounded-full bg-olive text-white;
+  animation: contact-pop 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes contact-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-quick-btn:hover {
+    transform: none;
+  }
+
+  .contact-card:hover,
+  .contact-card:focus-visible {
+    transform: none;
+  }
+
+  .contact-input:focus {
+    transform: none;
+  }
+
+  .contact-success-icon {
     animation: none;
   }
 }

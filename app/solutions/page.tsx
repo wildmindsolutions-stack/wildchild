@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import PageHeader from "../components/PageHeader";
 import CTA from "../components/CTA";
-import Icon from "../components/Icon";
-import { landingNav } from "../lib/landing-pages";
-import { locationHubs } from "../lib/locations";
+import SolutionsGrid from "../components/SolutionsGrid";
+import LocationHubGrid from "../components/LocationHubGrid";
 import { siteConfig } from "../lib/site";
 
 export const metadata: Metadata = {
@@ -33,37 +31,23 @@ export default function SolutionsPage() {
         description="Dedicated SEO pages for the services and locations people search for — so you can jump straight to the right expertise."
       />
 
-      <section className="section">
+      <section className="section-page">
         <div className="container-wc">
-          <h2 className="text-2xl font-bold text-ink">Service &amp; technology pages</h2>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {landingNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="flex items-center justify-between rounded-xl border border-ink/[0.06] bg-white px-5 py-4 text-sm font-semibold text-ink transition hover:border-brand-500 hover:text-brand-600"
-              >
-                {item.label}
-                <Icon name="arrow" className="h-4 w-4 opacity-40" />
-              </Link>
-            ))}
-          </div>
+          <h2 className="font-display text-2xl font-semibold text-ink sm:text-3xl">
+            Service &amp; technology pages
+          </h2>
+          <p className="mt-2 max-w-2xl text-ink-muted">
+            Hover any card to preview — click to open the full solution page.
+          </p>
+          <SolutionsGrid showViewAll={false} className="mt-8" />
 
-          <h2 className="mt-16 text-2xl font-bold text-ink">Location pages</h2>
-          <p className="mt-2 text-ink-muted">
+          <h2 className="mt-14 font-display text-2xl font-semibold text-ink sm:text-3xl">
+            Location pages
+          </h2>
+          <p className="mt-2 max-w-2xl text-ink-muted">
             Rank for “best … in Ahmedabad / Gujarat / India” with dedicated local hubs.
           </p>
-          <div className="mt-8 grid gap-3 sm:grid-cols-3">
-            {locationHubs.map((hub) => (
-              <Link
-                key={hub.href}
-                href={hub.href}
-                className="rounded-xl border border-ink/[0.06] bg-olive px-5 py-6 text-center text-sm font-semibold text-white transition hover:bg-brand-600"
-              >
-                Best in {hub.name}
-              </Link>
-            ))}
-          </div>
+          <LocationHubGrid className="mt-8" />
         </div>
       </section>
 

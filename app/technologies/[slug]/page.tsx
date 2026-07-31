@@ -87,7 +87,7 @@ export default function TechnologyDetail({ params }: Params) {
         description={`${tech.short} Also serving Gujarat and India.`}
       />
 
-      <section className="section">
+      <section className="section-page">
         <div className="container-wc grid gap-12 lg:grid-cols-[1.4fr,1fr]">
           <div>
             <span className="eyebrow">Overview</span>

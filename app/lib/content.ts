@@ -34,7 +34,7 @@ export const services = [
 export const stats = [
   { value: "10+", label: "Years of experience" },
   { value: "200+", label: "Projects delivered" },
-  { value: "19+", label: "Trusted clients" },
+  { value: "30+", label: "Trusted clients" },
   { value: "9", label: "Technologies mastered" }
 ];
 
@@ -143,5 +143,34 @@ export const clients = [
   { name: "Premium Labels", logo: greenLogo("16.png") },
   { name: "State Bank of India", logo: greenLogo("17.png") },
   { name: "Devum Research", logo: greenLogo("Devum research.png") },
-  { name: "ARG", logo: greenLogo("1630661315588.jpg") }
+  {
+    name: "ARG Creations",
+    logo: greenLogo("arg creation logo.jpg.jpeg")
+  },
+  { name: "Reliance Jio", logo: greenLogo("Reliance_Jio_Logo.png") },
+  {
+    name: "Gujarat Council on Science and Technology",
+    logo: greenLogo("2_SV_GUJCOST Logo.png")
+  },
+  { name: "Indian Navy", logo: greenLogo("Indian navy logo.png") },
+  {
+    name: "Science City Ahmedabad",
+    logo: greenLogo("science-city-ahmedabad-logo-7D04DA6AEB-seeklogo.com (1).png")
+  },
+  { name: "HEER Technology & Control", logo: greenLogo("heer_LOGO.png") },
+  { name: "Aden A. D. Engineers", logo: greenLogo("aden logo.png") },
+  { name: "Gujarat Tourism", logo: greenLogo("gujarat tourism.png") },
+  {
+    name: "Shree Swaminarayan Museum",
+    logo: greenLogo("shree swaminarayan musium logo.png")
+  },
+  {
+    name: "Khodiyar CAD Center",
+    logo: greenLogo("khodiyar cad center logo.png")
+  },
+  {
+    name: "Department of Science & Technology, Government of Gujarat",
+    logo: greenLogo("DST.png")
+  },
+  { name: "Panther Studio", logo: greenLogo("Panther_Logo_3000px (1) (1).png") }
 ];
